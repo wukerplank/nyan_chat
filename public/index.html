@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NyanChat</title>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="javascript/jquery-1.8.3.min.js"></script>
+
+		<link href='stylesheets/bootstrap.css' rel='stylesheet' type='text/css'>
+
+		<style type="text/css" media="screen">
+			body {
+				margin-top: 60px;
+			}
+			.message small {
+				color: #555;
+			}
+			.nyan_mode {
+				background-image: url(/images/nyan_cat.gif);
+			}
+			.nyan_mode #content_container {
+				padding-top: 20px;
+				border-radius: 5px;
+				background-color: rgba(220,220,220,0.9);
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+
+					<a class="brand">NyanChat</a>
+
+					<div class="nav-collapse">
+						<ul class="nav pull-right">
+							<label><input type="checkbox" id="nyan_mode" value="on"> Full Nyan Mode</label>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row" id="content_container">
+				<div class="span3">
+					<div class="well">
+						<ul id="channels" class="nav nav-list"></ul>
+					</div>
+					
+					<div class="well" style="overflow:hidden">
+						<form id="name_form" class="form">
+							<input id="name_field" class="span2"> <input type="submit" value="Change Name" class="btn">
+						</form>
+						
+						<ul id="clients" class="nav nav-list"></ul>
+					</div>
+				</div>
+				<div class="span9">
+					<div id="messages"></div>
+
+					<form id="new_message_form" class="form-inline">
+						<input type="text" id="new_message_field" class="span8" /> <input type="submit" value="Send" class="btn" />
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<script src="javascript/client_code.js"></script>
+	</body>
+</html>
